@@ -90,14 +90,12 @@ private struct LabelView: View {
                 Text(title)
                     .font(.system(size: 21.0, weight: .semibold))
                     .lineLimit(1)
-                    .fixedSize(horizontal: true, vertical: false)
                     .foregroundColor(.primary)
             }
             if let caption = caption {
                 Text(caption)
-                    .font(.headline)
                     .lineLimit(2)
-                    .fixedSize(horizontal: true, vertical: false)
+                    .font(.headline)
                     .foregroundColor(.secondary)
             }
         }
@@ -142,13 +140,9 @@ public struct TTProgressHUD: View {
                         .edgesIgnoringSafeArea(.all)
                     
                     ZStack {
-                        if let blurEffect = config.blurEffectStyle {
-                            config.foregroundColor
-                                .blurEffect()
-                                .blurEffectStyle(blurEffect)
-                        } else {
-                            config.foregroundColor
-                        }
+                        Color.white
+                            .blurEffect()
+                            .blurEffectStyle(.systemChromeMaterial)
                         
                         VStack(spacing: 20) {
                             if config.type == .loading {
